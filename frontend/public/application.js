@@ -6,7 +6,7 @@ document.getElementById('application-form').addEventListener('submit', async (e)
   const formData = new FormData(e.target);
 
   try {
-      const response = await fetch('hhttps://job-pong-backend-5599128385ea.herokuapp.com/', { // Replace with your backend URL
+      const response = await fetch('https://job-pong-backend-5599128385ea.herokuapp.com/', { // Replace with your backend URL
           method: 'POST',
           body: formData
       });

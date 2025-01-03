@@ -1050,3 +1050,5 @@ backend/node_modules/call-bound/LICENSE
 backend/node_modules/call-bound/index.js
 backend/node_modules/call-bound/index.d.ts
 backend/node_modules/call-bound/CHANGELOG.md
+
+frontend/uploads

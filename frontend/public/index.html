@@ -9,10 +9,11 @@
 <body>
   <header>
     <h1>Welcome to Job Pong!</h1>
-    <p>The modern job application experience, now with extra fun.</p>
+    <p>The modern job application experience.</p>
   </header>
-  
+
   <main>
+    <!-- Resume Upload Form -->
     <section id="upload-section">
       <h2>Upload Your Resume</h2>
       <form id="resume-upload-form" action="/upload" method="POST" enctype="multipart/form-data">
@@ -21,18 +22,18 @@
       </form>
       <p id="upload-status"></p>
     </section>
-    
-    <section id="pong-game">
-      <h2>Play Pong While You Wait</h2>
-      <canvas id="pong-canvas" width="600" height="400"></canvas>
-      <p id="pong-instructions">Use arrow keys to move your paddle!</p>
+
+    <!-- Pong Game -->
+    <section id="pong-section">
+      <h2>Play Pong!</h2>
+      <canvas id="pong-game" width="600" height="400"></canvas>
     </section>
   </main>
-  
+
   <footer>
     <p>© 2025 Job Pong. All rights reserved.</p>
   </footer>
-  
+
   <script src="script.js"></script>
 </body>
 </html>

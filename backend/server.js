@@ -38,9 +38,11 @@ app.post('/upload', upload.single('resume'), (req, res) => {
     }
     res.json({
         message: 'Resume uploaded successfully!',
-        file: req.file.filename
+        file: req.file.filename,
+        fileUrl: `/uploads/${req.file.filename}` // Include the file URL
     });
 });
+
 
 // Catch-all for unknown routes
 app.use((req, res) => {

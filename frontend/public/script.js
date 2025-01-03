@@ -6,14 +6,24 @@ let paddleWidth = 100, paddleHeight = 10, ballRadius = 8;
 let x = canvas.width / 2, y = canvas.height - 30;
 let dx = 2, dy = -2;
 let paddleX = (canvas.width - paddleWidth) / 2;
+let gamePaused = false;
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'ArrowRight' && paddleX < canvas.width - paddleWidth) {
-    paddleX += 20;
-  } else if (e.key === 'ArrowLeft' && paddleX > 0) {
-    paddleX -= 20;
+  if (!gamePaused) {
+    if (e.key === 'ArrowRight' && paddleX < canvas.width - paddleWidth) {
+      paddleX += 20;
+    } else if (e.key === 'ArrowLeft' && paddleX > 0) {
+      paddleX -= 20;
+    }
   }
 });
+
+function toggleGamePause(pause) {
+  gamePaused = pause;
+  if (!gamePaused) {
+    draw(); // Resume the game loop
+  }
+}
 
 function drawBall() {
   context.beginPath();
@@ -32,6 +42,8 @@ function drawPaddle() {
 }
 
 function draw() {
+  if (gamePaused) return;
+
   context.clearRect(0, 0, canvas.width, canvas.height);
   drawBall();
   drawPaddle();
@@ -43,7 +55,7 @@ function draw() {
     else {
       alert('Game Over!');
       document.location.reload();
-      return; // Game Over
+      return;
     }
   }
 
@@ -54,6 +66,7 @@ function draw() {
 }
 
 draw();
+
 
 // Resume Upload Logic
 const BACKEND_URL = "https://job-pong-backend-5599128385ea.herokuapp.com/"; // Replace with your backend URL

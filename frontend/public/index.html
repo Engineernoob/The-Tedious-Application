@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Satirical Job Application</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome to Job Pong!</h1>
+    <p>The modern job application experience, now with extra fun.</p>
+  </header>
+  
+  <main>
+    <section id="upload-section">
+      <h2>Upload Your Resume</h2>
+      <form id="resume-upload-form" action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="resume" id="resume" required>
+        <button type="submit">Upload Resume</button>
+      </form>
+      <p id="upload-status"></p>
+    </section>
+    
+    <section id="pong-game">
+      <h2>Play Pong While You Wait</h2>
+      <canvas id="pong-canvas" width="600" height="400"></canvas>
+      <p id="pong-instructions">Use arrow keys to move your paddle!</p>
+    </section>
+  </main>
+  
+  <footer>
+    <p>© 2025 Job Pong. All rights reserved.</p>
+  </footer>
+  
+  <script src="script.js"></script>
+</body>
+</html>

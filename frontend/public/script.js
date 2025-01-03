@@ -40,7 +40,11 @@ function draw() {
   if (y + dy < ballRadius) dy = -dy;
   else if (y + dy > canvas.height - ballRadius) {
     if (x > paddleX && x < paddleX + paddleWidth) dy = -dy;
-    else return; // Game Over
+    else {
+      alert('Game Over!');
+      document.location.reload();
+      return; // Game Over
+    }
   }
 
   x += dx;
@@ -52,12 +56,13 @@ function draw() {
 draw();
 
 // Resume Upload Logic
+const BACKEND_URL = "https://job-pong-backend-5599128385ea.herokuapp.com/"; // Replace with your backend URL
 document.getElementById('resume-upload-form').addEventListener('submit', async (e) => {
   e.preventDefault();
   const formData = new FormData(e.target);
 
   try {
-    const response = await fetch('/upload', {
+    const response = await fetch(`${BACKEND_URL}/upload`, {
       method: 'POST',
       body: formData
     });
@@ -66,7 +71,7 @@ document.getElementById('resume-upload-form').addEventListener('submit', async (
     const uploadStatus = document.getElementById('upload-status');
     uploadStatus.innerHTML = `
       <p>${result.message}</p>
-      <p><a href="${result.fileUrl}" target="_blank">View Uploaded Resume</a></p>
+      <p><a href="${BACKEND_URL}/uploads/${result.file}" target="_blank">View Uploaded Resume</a></p>
     `;
   } catch (err) {
     document.getElementById('upload-status').innerText = 'Error uploading resume.';

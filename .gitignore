@@ -1849,3 +1849,9 @@ backend/node_modules/fsevents/fsevents.node
 backend/node_modules/fsevents/LICENSE
 backend/node_modules/fsevents/package.json
 backend/node_modules/fsevents/README.md
+backend/node_modules/cors/CONTRIBUTING.md
+backend/node_modules/cors/HISTORY.md
+backend/node_modules/cors/LICENSE
+backend/node_modules/cors/package.json
+backend/node_modules/cors/README.md
+backend/node_modules/cors/lib/index.js

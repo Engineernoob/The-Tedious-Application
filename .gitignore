@@ -1843,3 +1843,9 @@ frontend/node_modules/append-field/LICENSE
 frontend/node_modules/append-field/index.js
 frontend/node_modules/append-field/.npmignore
 frontend/node_modules/.bin/mkdirp
+backend/node_modules/fsevents/fsevents.d.ts
+backend/node_modules/fsevents/fsevents.js
+backend/node_modules/fsevents/fsevents.node
+backend/node_modules/fsevents/LICENSE
+backend/node_modules/fsevents/package.json
+backend/node_modules/fsevents/README.md

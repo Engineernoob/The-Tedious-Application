@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
@@ -11,6 +12,13 @@ const uploadDir = path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir, { recursive: true });
 }
+
+// Allow requests from your Netlify frontend
+app.use(cors({
+    origin: 'https://iridescent-belekoy-d0e966.netlify.app', // Replace with your actual frontend URL
+    methods: ['GET', 'POST']
+}));
+
 
 // Serve static files from the frontend/public directory
 app.use(express.static(path.join(__dirname, '..', 'frontend', 'public')));
@@ -29,6 +37,10 @@ const upload = multer({ storage });
 // Routes
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'frontend', 'public', 'index.html'));
+});
+
+app.get('/', (req, res) => {
+    res.send('Backend is working!');
 });
 
 // Endpoint to handle resume uploads
